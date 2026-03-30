@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>🧋 Capybara Bubble Tea Catcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== START SCREEN ===== -->
+    <div id="start-screen" class="screen active">
+        <div class="title-container">
+            <div class="title-deco">🥤✨🔮</div>
+            <h1 class="game-title">Capybara<br>Bubble Tea Catcher</h1>
+            <div class="title-deco">🔮✨🥤</div>
+        </div>
+        <div class="capybara-preview">
+            <div class="capybara-art">
+                <div class="capy-body-preview"></div>
+                <div class="capy-head-preview">
+                    <div class="capy-ear left"></div>
+                    <div class="capy-ear right"></div>
+                    <div class="capy-face-preview">
+                        <div class="capy-eye left"></div>
+                        <div class="capy-eye right"></div>
+                        <div class="capy-nose-preview"></div>
+                        <div class="capy-mouth-preview"></div>
+                        <div class="capy-blush left"></div>
+                        <div class="capy-blush right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="instructions">
+            <p>🎮 Help the capybara catch yummy bubble tea treats!</p>
+            <p>⬅️➡️ Use <strong>Arrow Keys</strong> or <strong>A/D</strong> to move</p>
+            <p>📱 On mobile: tap left/right side of screen</p>
+            <p>🥤 Catch good items for points!</p>
+            <p>🌶️ Avoid bad items or lose hearts!</p>
+        </div>
+        <button id="start-btn" class="cute-btn">🥤 Start Game!</button>
+    </div>
+
+    <!-- ===== GAME SCREEN ===== -->
+    <div id="game-screen" class="screen">
+        <!-- HUD -->
+        <div id="hud">
+            <div id="score-display">🥤 Score: <span id="score">0</span></div>
+            <div id="lives-display">
+                <span id="hearts">❤️❤️❤️❤️❤️</span>
+            </div>
+            <div id="level-display">⭐ Level: <span id="level">1</span></div>
+        </div>
+
+        <!-- Game Area -->
+        <div id="game-area">
+            <!-- Capybara character (built in JS) -->
+            <div id="capybara">
+                <div class="capy-body">
+                    <div class="capy-head">
+                        <div class="capy-ear-game left"></div>
+                        <div class="capy-ear-game right"></div>
+                        <div class="capy-face">
+                            <div class="capy-eye-game left"></div>
+                            <div class="capy-eye-game right"></div>
+                            <div class="capy-nose-game"></div>
+                            <div class="capy-mouth-game"></div>
+                            <div class="capy-blush-game left"></div>
+                            <div class="capy-blush-game right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Items will be spawned here -->
+        </div>
+
+        <!-- Mobile touch controls -->
+        <div id="mobile-controls">
+            <button id="btn-left" class="control-btn">⬅️</button>
+            <button id="btn-right" class="control-btn">➡️</button>
+        </div>
+    </div>
+
+    <!-- ===== GAME OVER SCREEN ===== -->
+    <div id="gameover-screen" class="screen">
+        <div class="gameover-container">
+            <h2 class="gameover-title">Oh no!</h2>
+            <div class="gameover-capy">😿🥤💔</div>
+            <p class="gameover-text">Capybara spilled the milk tea!</p>
+            <div class="final-score">
+                <p>Your Score</p>
+                <span id="final-score-value">0</span>
+            </div>
+            <p id="final-level" class="final-level-text">You reached Level 1!</p>
+            <p id="gameover-message" class="gameover-msg"></p>
+            <button id="restart-btn" class="cute-btn">🔄 Play Again!</button>
+        </div>
+    </div>
+
+    <!-- Floating effect container -->
+    <div id="effects-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

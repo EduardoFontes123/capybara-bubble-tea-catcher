@@ -1,0 +1,815 @@
+/* ========================================
+   Capybara Bubble Tea Catcher - Styles
+   Pastel, cute, kawaii theme
+   ======================================== */
+
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink-light: #FFD1DC;
+    --pink: #FFB6C1;
+    --pink-dark: #FF91A4;
+    --cream: #FFF5E6;
+    --mint: #B5EAD7;
+    --mint-dark: #8DD5BE;
+    --brown-milk: #D4A574;
+    --brown-dark: #8B6914;
+    --brown-body: #C4956A;
+    --brown-head: #B8865A;
+    --lavender: #E8D5F5;
+    --peach: #FFDAB9;
+    --sky-blue: #BDE0FE;
+    --white: #FFFFFF;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --text-dark: #5D4037;
+    --text-light: #8D6E63;
+    --danger: #FF6B6B;
+    --success: #51CF66;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+    background: linear-gradient(180deg, var(--sky-blue) 0%, var(--pink-light) 40%, var(--cream) 100%);
+    color: var(--text-dark);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+/* --- Screens --- */
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: opacity 0.5s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* ========================================
+   START SCREEN
+   ======================================== */
+#start-screen {
+    background: linear-gradient(180deg, var(--sky-blue) 0%, var(--pink-light) 50%, var(--cream) 100%);
+    gap: 16px;
+    padding: 20px;
+}
+
+.title-container {
+    text-align: center;
+    animation: floatTitle 3s ease-in-out infinite;
+}
+
+@keyframes floatTitle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.title-deco {
+    font-size: 1.8rem;
+    letter-spacing: 8px;
+}
+
+.game-title {
+    font-size: 2.5rem;
+    color: var(--brown-dark);
+    text-shadow: 
+        3px 3px 0 var(--pink),
+        -1px -1px 0 var(--white);
+    line-height: 1.2;
+    margin: 8px 0;
+}
+
+/* --- Capybara preview on start screen --- */
+.capybara-preview {
+    margin: 10px 0;
+}
+
+.capybara-art {
+    position: relative;
+    width: 120px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.capy-body-preview {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 55px;
+    background: var(--brown-body);
+    border-radius: 50px 50px 30px 30px;
+    box-shadow: inset 0 -10px 15px rgba(0,0,0,0.1);
+}
+
+.capy-head-preview {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 60px;
+    background: var(--brown-head);
+    border-radius: 40px 40px 30px 30px;
+    z-index: 2;
+}
+
+.capy-ear {
+    position: absolute;
+    width: 18px;
+    height: 14px;
+    background: var(--brown-dark);
+    border-radius: 50% 50% 20% 20%;
+    top: -4px;
+}
+.capy-ear.left { left: 8px; transform: rotate(-15deg); }
+.capy-ear.right { right: 8px; transform: rotate(15deg); }
+
+.capy-face-preview {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 40px;
+}
+
+.capy-eye {
+    position: absolute;
+    width: 10px;
+    height: 12px;
+    background: #2C1810;
+    border-radius: 50%;
+    top: 2px;
+    animation: blink 4s infinite;
+}
+.capy-eye.left { left: 8px; }
+.capy-eye.right { right: 8px; }
+
+.capy-eye::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+}
+
+@keyframes blink {
+    0%, 95%, 100% { transform: scaleY(1); }
+    97% { transform: scaleY(0.1); }
+}
+
+.capy-nose-preview {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 10px;
+    background: #5D3A1A;
+    border-radius: 50%;
+}
+
+.capy-mouth-preview {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 8px;
+    border-bottom: 3px solid #5D3A1A;
+    border-radius: 0 0 50% 50%;
+}
+
+.capy-blush {
+    position: absolute;
+    width: 14px;
+    height: 8px;
+    background: var(--pink);
+    border-radius: 50%;
+    top: 12px;
+    opacity: 0.6;
+}
+.capy-blush.left { left: -2px; }
+.capy-blush.right { right: -2px; }
+
+/* --- Instructions --- */
+.instructions {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    padding: 16px 24px;
+    max-width: 400px;
+    text-align: center;
+    border: 2px solid var(--pink);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.instructions p {
+    margin: 6px 0;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+/* --- Cute Button --- */
+.cute-btn {
+    padding: 16px 40px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--pink-dark), var(--pink));
+    border: 3px solid var(--white);
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 
+        0 6px 20px rgba(255, 145, 164, 0.4),
+        0 2px 0 var(--pink-dark);
+    transition: all 0.2s ease;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cute-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255,255,255,0.2) 50%,
+        transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.cute-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 10px 30px rgba(255, 145, 164, 0.5),
+        0 4px 0 var(--pink-dark);
+}
+
+.cute-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.cute-btn:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 
+        0 2px 10px rgba(255, 145, 164, 0.4),
+        0 1px 0 var(--pink-dark);
+}
+
+/* ========================================
+   GAME SCREEN
+   ======================================== */
+#game-screen {
+    background: linear-gradient(180deg, 
+        var(--sky-blue) 0%, 
+        #D4EEFF 30%,
+        var(--cream) 70%,
+        var(--pink-light) 100%
+    );
+    justify-content: flex-start;
+    padding: 0;
+}
+
+/* Decorative clouds */
+#game-screen::before,
+#game-screen::after {
+    content: '☁️';
+    position: absolute;
+    font-size: 3rem;
+    opacity: 0.3;
+    z-index: 0;
+    animation: cloudFloat 20s linear infinite;
+}
+
+#game-screen::before {
+    top: 50px;
+    left: -60px;
+    animation-delay: 0s;
+}
+
+#game-screen::after {
+    top: 100px;
+    left: -60px;
+    animation-delay: 10s;
+}
+
+@keyframes cloudFloat {
+    0% { transform: translateX(-60px); }
+    100% { transform: translateX(calc(100vw + 60px)); }
+}
+
+/* --- HUD --- */
+#hud {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--pink-light);
+    z-index: 5;
+    font-size: 1rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+#score-display {
+    color: var(--brown-dark);
+}
+
+#lives-display {
+    font-size: 1.2rem;
+}
+
+#level-display {
+    color: var(--mint-dark);
+}
+
+/* --- Game Area --- */
+#game-area {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* --- Capybara (in-game) --- */
+#capybara {
+    position: absolute;
+    bottom: 10px;
+    width: 70px;
+    height: 60px;
+    z-index: 3;
+    transition: left 0.05s linear;
+}
+
+.capy-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.capy-head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 42px;
+    background: var(--brown-head);
+    border-radius: 28px 28px 20px 20px;
+    z-index: 2;
+}
+
+.capy-body::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 66px;
+    height: 38px;
+    background: var(--brown-body);
+    border-radius: 35px 35px 20px 20px;
+    z-index: 1;
+    box-shadow: inset 0 -6px 10px rgba(0,0,0,0.08);
+}
+
+.capy-ear-game {
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background: var(--brown-dark);
+    border-radius: 50% 50% 20% 20%;
+    top: -2px;
+    z-index: 3;
+}
+.capy-ear-game.left { left: 6px; transform: rotate(-15deg); }
+.capy-ear-game.right { right: 6px; transform: rotate(15deg); }
+
+.capy-face {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 30px;
+}
+
+.capy-eye-game {
+    position: absolute;
+    width: 8px;
+    height: 10px;
+    background: #2C1810;
+    border-radius: 50%;
+    top: 0;
+    animation: blink 4s infinite;
+}
+.capy-eye-game.left { left: 6px; }
+.capy-eye-game.right { right: 6px; }
+
+.capy-eye-game::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    top: 1px;
+    left: 2px;
+}
+
+.capy-nose-game {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 7px;
+    background: #5D3A1A;
+    border-radius: 50%;
+}
+
+.capy-mouth-game {
+    position: absolute;
+    top: 17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 6px;
+    border-bottom: 2px solid #5D3A1A;
+    border-radius: 0 0 50% 50%;
+}
+
+.capy-blush-game {
+    position: absolute;
+    width: 10px;
+    height: 6px;
+    background: var(--pink);
+    border-radius: 50%;
+    top: 8px;
+    opacity: 0.6;
+}
+.capy-blush-game.left { left: -2px; }
+.capy-blush-game.right { right: -2px; }
+
+/* Capybara hit effect */
+#capybara.hit .capy-head {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(-50%) rotate(0); }
+    25% { transform: translateX(-50%) rotate(-8deg); }
+    75% { transform: translateX(-50%) rotate(8deg); }
+}
+
+/* Capybara happy effect */
+#capybara.happy .capy-body {
+    animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* --- Falling Items --- */
+.falling-item {
+    position: absolute;
+    font-size: 1.8rem;
+    z-index: 2;
+    pointer-events: none;
+    transition: none;
+    will-change: top;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.falling-item.good {
+    animation: wobbleGood 1.5s ease-in-out infinite;
+}
+
+.falling-item.bad {
+    animation: wobbleBad 1.2s ease-in-out infinite;
+}
+
+@keyframes wobbleGood {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes wobbleBad {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50% { transform: rotate(8deg) scale(1.05); }
+}
+
+/* --- Floating Score Text --- */
+.float-text {
+    position: absolute;
+    font-size: 1.2rem;
+    font-weight: bold;
+    z-index: 10;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+}
+
+.float-text.good {
+    color: var(--success);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.float-text.bad {
+    color: var(--danger);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px) scale(1.3);
+    }
+}
+
+/* --- Particle Effect --- */
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    animation: particleBurst 0.6s ease-out forwards;
+}
+
+@keyframes particleBurst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0);
+    }
+}
+
+/* --- Mobile Controls --- */
+#mobile-controls {
+    display: none;
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-top: 2px solid var(--pink-light);
+    flex-shrink: 0;
+}
+
+.control-btn {
+    padding: 14px 30px;
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--mint), var(--mint-dark));
+    border: 3px solid var(--white);
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.1s ease;
+    flex: 1;
+    margin: 0 8px;
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Show mobile controls on small screens */
+@media (max-width: 768px) {
+    #mobile-controls {
+        display: flex;
+    }
+}
+
+@media (pointer: coarse) {
+    #mobile-controls {
+        display: flex;
+    }
+}
+
+/* ========================================
+   GAME OVER SCREEN
+   ======================================== */
+#gameover-screen {
+    background: linear-gradient(180deg, 
+        rgba(255, 182, 193, 0.9) 0%, 
+        rgba(255, 245, 230, 0.95) 100%
+    );
+    backdrop-filter: blur(10px);
+}
+
+.gameover-container {
+    text-align: center;
+    animation: fadeInUp 0.8s ease-out;
+    padding: 20px;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gameover-title {
+    font-size: 3rem;
+    color: var(--pink-dark);
+    text-shadow: 3px 3px 0 var(--white);
+    margin-bottom: 10px;
+}
+
+.gameover-capy {
+    font-size: 3rem;
+    margin: 10px 0;
+    animation: floatTitle 2s ease-in-out infinite;
+}
+
+.gameover-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.final-score {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 16px 40px;
+    margin: 16px auto;
+    display: inline-block;
+    border: 3px solid var(--pink);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.final-score p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+#final-score-value {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--brown-dark);
+    display: block;
+}
+
+.final-level-text {
+    color: var(--mint-dark);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.gameover-msg {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+#restart-btn {
+    background: linear-gradient(135deg, var(--mint-dark), var(--mint));
+}
+
+#restart-btn:hover {
+    box-shadow: 
+        0 10px 30px rgba(141, 213, 190, 0.5),
+        0 4px 0 var(--mint-dark);
+}
+
+/* --- Effects Container --- */
+#effects-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* --- Screen flash effect --- */
+.flash-good {
+    animation: flashGreen 0.3s ease;
+}
+
+.flash-bad {
+    animation: flashRed 0.3s ease;
+}
+
+@keyframes flashGreen {
+    0%, 100% { box-shadow: inset 0 0 0 rgba(81, 207, 102, 0); }
+    50% { box-shadow: inset 0 0 60px rgba(81, 207, 102, 0.2); }
+}
+
+@keyframes flashRed {
+    0%, 100% { box-shadow: inset 0 0 0 rgba(255, 107, 107, 0); }
+    50% { box-shadow: inset 0 0 60px rgba(255, 107, 107, 0.3); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 1.8rem;
+    }
+    
+    .title-deco {
+        font-size: 1.3rem;
+    }
+    
+    .instructions {
+        padding: 12px 16px;
+        margin: 0 10px;
+    }
+    
+    .instructions p {
+        font-size: 0.8rem;
+    }
+    
+    .cute-btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+    
+    #hud {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+    
+    #lives-display {
+        font-size: 1rem;
+    }
+    
+    .falling-item {
+        font-size: 1.5rem;
+    }
+    
+    .gameover-title {
+        font-size: 2.2rem;
+    }
+    
+    #final-score-value {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .game-title {
+        font-size: 1.5rem;
+    }
+    
+    .capybara-preview {
+        transform: scale(0.8);
+    }
+}
